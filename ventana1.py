@@ -1,13 +1,12 @@
 # codificar ventana 1
 import sys
 
-from PyQt5 import QtGui
-from PyQt5.QtCore import Qt
+
 from PyQt5.QtGui import QPixmap, QFont
 from PyQt5.QtWidgets import QMainWindow, QHBoxLayout, QLabel, QDesktopWidget, QApplication, QFormLayout, QLineEdit, \
     QPushButton, QDialog, QDialogButtonBox, QVBoxLayout
-from PyQt5.uic.properties import QtCore
-
+from PyQt5 import QtGui, QtCore
+from PyQt5.QtCore import Qt
 
 class Ventana1(QMainWindow):
 
@@ -177,7 +176,7 @@ class Ventana1(QMainWindow):
         # agregamos los botones al layout izquierdo
         self.ladoIzquierdo.addRow(self.botonRegistrar, self.botonLimpiar)
 
-        # Agregamos el layout ladoIzquierdo al layout horicontal
+        # Agregamos el layout lado Izquierdo al layout horizontal
         self.horizontal.addLayout(self.ladoIzquierdo)
 
         # -----Layout derecho----
@@ -194,7 +193,7 @@ class Ventana1(QMainWindow):
         self.letrero3.setText("Recuperar Contraseña")
 
         # Asignamos tipo de letra
-        self.letrero3.setFont(QFont("Andale Mono", 20))
+        self.letrero3.setFont(QFont("Andale Mono", 30))
 
         # Color de texto
         self.letrero3.setStyleSheet("Color: #C0C0C0")
@@ -215,7 +214,7 @@ class Ventana1(QMainWindow):
         # Asignamos tipo de letra
         self.letrero3.setFont(QFont("Andale Mono", 10))
 
-        # Le ponemops color de textos y margenes
+        # Le ponemos color de textos y margenes
         self.letrero4.setStyleSheet("Color: #C0C0C0; margin-bottom: 40px;"
                                     "margin-top:20px"
                                     "padding-bottom:10px"
@@ -325,12 +324,131 @@ class Ventana1(QMainWindow):
         # metodo del boton limpiar
 
     def accion_botonLimpiar(self):
-        pass
-
+        self.nombrecompleto.setText('')
+        self.usuario.setText('')
+        self.password.setText('')
+        self.password2.setText('')
+        self.documento.setText('')
+        self.correo.setText('')
+        self.pregunta1.setText('')
+        self.respuesta1.setText('')
+        self.pregunta2.setText('')
+        self.respuesta2.setText('')
+        self.pregunta3.setText('')
+        self.respuesta3.setText('')
 
     def accion_botonRegistrar(self):
-        pass
+        # creamos la ventana de dialogo
+        self.ventanaDialogo = QDialog(None, QtCore.Qt.WindowSystemMenuHint | QtCore.Qt.WindowTitleHint)
 
+        # definimos el tamaño de la ventana
+        self.ventanaDialogo.resize(300, 150)
+
+        # creamos el boton para aceptar
+        self.botonAceptar = QDialogButtonBox.Ok
+        self.opciones = QDialogButtonBox(self.botonAceptar)
+        self.opciones.accepted.connect(self.ventanaDialogo.accept)
+
+        # establecemos el titulo de la ventana
+        self.ventanaDialogo.setWindowTitle("Formulario de registro")
+
+        # ventana modal
+        self.ventanaDialogo.setWindowModality(Qt.ApplicationModal)
+
+        # creamos el layout vertical
+        self.vertical = QVBoxLayout()
+
+        # creamos el label para los mensajes
+        self.mensaje = QLabel("")
+
+        # le pinesmos estilo al label mensaje
+        self.mensaje.setStyleSheet("background-color: #008B45; color: #FFFFFF; padding: 10px;")
+
+        # agregamos el label mensajes
+        self.vertical.addWidget(self.mensaje)
+
+        # agregamos las opciones de los botones
+        self.vertical.addWidget(self.opciones)
+
+        # establecemos el layout para la ventana
+        self.ventanaDialogo.setLayout(self.vertical)
+
+        # variable para controral si el ingreso de los datos estan correctos
+        self.datosCorrectos = True
+
+        # validamos que los passwords sean iguales
+        if (
+                self.password.text() != self.password2.text()
+        ):
+            self.datosCorrectos = False
+
+            # Escribimos el texto explicativo
+            self.mensaje.setText("Los passwords no son iguales")
+
+            self.ventanaDialogo.exec_()
+
+        # Se valida para que se ingresen todos los campos
+        if (
+                self.nombrecompleto.text() == ''
+                or self.usuario.text() == ''
+                or self.password.text() == ''
+                or self.password2.text() == ''
+                or self.documento.text() == ''
+                or self.correo.text() == ''
+                or self.pregunta1.text() == ''
+                or self.respuesta1.text() == ''
+                or self.pregunta2.text() == ''
+                or self.respuesta2.text() == ''
+                or self.pregunta3.text() == ''
+                or self.respuesta3.text() == ''
+        ):
+            self.datosCorrectos = False
+
+            # escribimos el texto explicativo
+            self.mensaje.setText("Debe ingresar todos los campos")
+
+            # hacemos que la ventana de dialogo se vea
+            self.ventanaDialogo.exec_()
+
+        # si los datos estan correctos:
+        if self.datosCorrectos:
+
+            # abrimos el archivo en modo agregar escribiendo datos en binario
+            self.file = open('datos/clientes.txt', 'ab')
+
+            # traer el texto de los QLineEdit y los agrega concatenandolos
+            # para escribirlos en formato binario utf-8
+            self.file.write(bytes(
+                self.nombrecompleto.text() + ";"
+                + self.usuario.text() + ";"
+                + self.password.text() + ";"
+                + self.password2.text() + ";"
+                + self.documento.text() + ";"
+                + self.correo.text() + ";"
+                + self.pregunta1.text() + ";"
+                + self.respuesta1.text() + ";"
+                + self.pregunta2.text() + ";"
+                + self.respuesta2.text() + ";"
+                + self.pregunta3.text() + ";"
+                + self.respuesta3.text() + "\n"
+                , encoding='UTF-8'))
+            # cerramos el archivo
+            self.file.close()
+
+            # habrimos en modo lectura el formato bytes
+            self.file = open('datos/clientes.txt', 'rb')
+            # recorrer el archivo linea por linea
+            while self.file:
+                linea = self.file.readline().decode('UTF-8')
+                print(linea)
+                if linea == '':  # para cuando se encuentre una linea vacia
+                    break
+            self.file.close()
+
+        # -------- OJO IMPORTANTE PONER AL FINAL --------
+
+        # Indicamos que el layout principal del fondo es horizontal
+        self.fondo.setLayout(self.horizontal)
 
 
 if __name__ == '__main__':

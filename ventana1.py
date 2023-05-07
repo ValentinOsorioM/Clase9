@@ -23,7 +23,7 @@ class Ventana1(QMainWindow):
 
         # Estableciendo las propiedades de ancho y alto:
         self.ancho = 900
-        self.alto = 600
+        self.alto = 700
 
         # Establecer el tamaño de la ventana:
         self.resize(self.ancho, self.alto)

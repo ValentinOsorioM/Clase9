@@ -73,11 +73,11 @@ class Ventana1(QMainWindow):
         # Le escribimos el texto
         self.letrero1.setText("Información del Cliente")
 
-        # Asignamos tito de letra
+        # Asignamos tipo de letra
         self.letrero1.setFont(QFont("Andale Mono", 20))
 
         # Color de texto
-        self.letrero1.setStyleSheet("Color: #C0C0C0")
+        self.letrero1.setStyleSheet("Color: #Black")
 
         # Agregamos el letrero en la primera linea
         self.ladoIzquierdo.addRow(self.letrero1)
@@ -193,10 +193,10 @@ class Ventana1(QMainWindow):
         self.letrero3.setText("Recuperar Contraseña")
 
         # Asignamos tipo de letra
-        self.letrero3.setFont(QFont("Andale Mono", 30))
+        self.letrero3.setFont(QFont("Andale Mono", 20))
 
         # Color de texto
-        self.letrero3.setStyleSheet("Color: #C0C0C0")
+        self.letrero3.setStyleSheet("Color: #Black;")
 
         # agregamos el letrero a la primera fila
         self.ladoDerecho.addRow(self.letrero3)
@@ -212,7 +212,7 @@ class Ventana1(QMainWindow):
                               "\ncon asteriscos con obligatorios.")
 
         # Asignamos tipo de letra
-        self.letrero3.setFont(QFont("Andale Mono", 10))
+        self.letrero3.setFont(QFont("Andale Mono", 20))
 
         # Le ponemos color de textos y margenes
         self.letrero4.setStyleSheet("Color: #C0C0C0; margin-bottom: 40px;"

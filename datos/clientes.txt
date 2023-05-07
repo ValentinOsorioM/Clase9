@@ -1,8 +1,1 @@
-<<<<<<< HEAD
-e;e;e;e;d;e;ed;d;d;c;c; f
-e;e;e;e;d;e;ed;d;d;c;c; f
-juan carlos;e;g;g;3433443333;gahidh@gmail.com;como estas ;muy bien;que haces;estudiar ;donde vives ;en medellin
-Valentín;valentinO;123;123;1234567890;njhgdcjhdv@gmail.com;como estas;bien;que hace;nada;cuantos años tiene;17
-=======
-Antonio Marin;AntoniMa;1234567;1234567;1152705201;antonimari@hotmail.com;Apellido de mi madre;Robertina;Nombre de Mascota;tulipana;Año de nacimiento;1998
->>>>>>> 4a85482244c65aa34e311f3a4be1443847843f45
+Antonio Marin;AntoniMa;1234567;1152705201;antonimari@hotmail.com;Apellido de mi madre;Robertina;Nombre de Mascota;tulipana;Año de nacimiento;1998

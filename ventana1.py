@@ -462,7 +462,7 @@ class Ventana1(QMainWindow):
     # Metodo del botón BotonBuscar:
     def accion_botonBuscar(self):
 
-        # variable para controral si el ingreso de los datos estan correctos
+        # variable para controlar si el ingreso de los datos estan correctos
         self.datosCorrectos = True
 
         #establecemos el titulo de la ventana:

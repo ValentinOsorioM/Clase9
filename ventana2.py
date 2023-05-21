@@ -7,7 +7,7 @@ from PyQt5.QtWidgets import QMainWindow, QDesktopWidget, QLabel, QHBoxLayout, QA
     QScrollArea, QButtonGroup, QVBoxLayout, QPushButton
 
 from cliente import Cliente
-
+from ventana3 import Ventana3
 
 
 class Ventana2(QMainWindow):
@@ -201,7 +201,7 @@ class Ventana2(QMainWindow):
                     self.cuadricula.addWidget(self.ventanaAuxiliar, fila, columna)
 
                     # Aumentamos el contador:
-                    self.contador + 1
+                    self.contador += 1
 
         # Establecemos el método para que funcionen todos los botones.
         self.botones.idClicked.connect(self.metodo_accionBotones)

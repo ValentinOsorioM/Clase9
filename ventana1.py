@@ -8,7 +8,7 @@ from PyQt5.QtWidgets import QMainWindow, QHBoxLayout, QLabel, QDesktopWidget, QA
 from PyQt5 import QtGui, QtCore
 from PyQt5.QtCore import Qt
 from cliente import Cliente
-
+from ventana2 import Ventana2
 class Ventana1(QMainWindow):
 
     #hacer el metodo de construccion de la ventana
@@ -322,6 +322,26 @@ class Ventana1(QMainWindow):
 
         # agregamos los botones al layout derecho
         self.ladoDerecho.addRow(self.botonBuscar, self.botonRecuperar)
+
+        #--- Boton continuar
+
+        # hacemos un boton para registrar los datos
+        self.botonContinuar = QPushButton("Continuar")
+        # establecemos el ancho del botton
+        self.botonContinuar.setFixedWidth(90)
+
+        # le establecemos los estilos
+        self.botonContinuar.setStyleSheet("background-color: #008B45;"
+                                          "color: #FFFFFF;"
+                                          "padding: 10px;"
+                                          "margin-top: 40px;")
+
+        self.botonContinuar.clicked.connect(self.accion_botonContinuar)
+
+        # Agregamos el botón continuar al layout ladoderecho
+        self.ladoDerecho.addRow(self.botonContinuar)
+
+
 
         # agregamos el layout ladoDerecho al layout horizontal
         self.horizontal.addLayout(self.ladoDerecho)
@@ -724,6 +744,10 @@ class Ventana1(QMainWindow):
 
 
 
+    def accion_botonContinuar(self):
+        self.hide()
+        self.ventana2 = Ventana2(self)
+        self.ventana2.show()
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

@@ -21,7 +21,7 @@ class Ventana3(QMainWindow):
         self.setWindowTitle("Usuarios Registrados")
 
         #poner el icono
-        self.setWindowIcon(QtGui.QIcon('imagenes/icono.jpeg'))
+        self.setWindowIcon(QtGui.QIcon('imagenes/icono.jpg'))
 
         # Estableciendo las propiedades de ancho y alto:
         self.ancho = 900

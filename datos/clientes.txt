@@ -1,2 +1,1 @@
-Pedro Picapiedra;pedrotesin;123456789;14785230;Pedrinpicapica@hotmail.com;nombre de madre;Antonella;donde vivo actualmente;Jerusalen;edad;28
-Maria Antonieta;MariaAntoni;123456789;10183700;Mariaantoni123@hotmail.com;Primer viaje;San andres;Donde vive la mama;new york;nombre de mascota;lucky
+Juan Pepito Perez;JuanPepito12;pepito1237;152720482;Elpepito@poli.com;nombredetuvieja;antonia;nombreabuelo;roberto;nombredepadre;casimiro

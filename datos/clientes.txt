@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 Antonio Marin;AntoniMa;1234567;1152705201;antonimari@hotmail.com;Apellido de mi madre;Robertina;Nombre de Mascota;tulipana;Año de nacimiento;1998
+=======
+Antonio Marin;AntoniMa;1234567;1152705201;antonimari@hotmail.com;Apellido de mi madre;Robertina;Nombre de Mascota;tulipana;Año de nacimiento;1998
+Pedro Picapiedra;pedrotesin;123456789;14785230;Pedrinpicapica@hotmail.com;nombre de madre;Antonella;donde vivo actualmente;Jerusalen;edad;28
+>>>>>>> b20c8766a1a9c8e944cbf2bd590f7efe9fa004fa

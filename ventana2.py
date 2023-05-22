@@ -59,7 +59,7 @@ class Ventana2(QMainWindow):
         self.setCentralWidget(self.fondo)
 
         # Establecemos la distribución de los elementos en layout vertical :
-        self.vertical = QHBoxLayout()
+        self.vertical = QVBoxLayout()
 
         # Hacemos un letrero
         self.letrero1 = QLabel()
@@ -115,7 +115,7 @@ class Ventana2(QMainWindow):
             if linea == '':
                 break
             # Creamos un objeto tipo cliente llamado u
-            U = Cliente(
+            u = Cliente(
                 lista[0],
                 lista[1],
                 lista[2],
@@ -129,7 +129,7 @@ class Ventana2(QMainWindow):
                 lista[10],
             )
             # Metemos el objeto en la lista de usuarios:
-            self.usuarios.append(U)
+            self.usuarios.append(u)
 
         # Cerramos el archivo:
         self.file.close()

@@ -61,6 +61,9 @@ class Ventana3(QMainWindow):
         # Abrimos el archivo en modo de lectura:
         self.file = open('datos/clientes.txt', 'rb')
 
+        # Lista vacia para guardar los usuarios:
+        self.usuarios = []
+
         # Recorremos el archivo, línea por línea:
         while self.file:
             linea = self.file.readline().decode('UTF-8')
@@ -116,7 +119,7 @@ class Ventana3(QMainWindow):
         self.letrero1.setStyleSheet("Color: #C0C0C0")
 
         #Agregamos el letrero en la primera fila:
-        self.vertical.addWidget(self.letero1)
+        self.vertical.addWidget(self.letrero1)
 
         # Agregamos un espacio despues
         self.vertical.addStretch()
@@ -164,7 +167,7 @@ class Ventana3(QMainWindow):
 
         # Llenamos la tabla
         for u in self.usuarios:
-            self.tabla.setItem(self.contador, 0, QTableWidgetItem(u.NombreCompleto))
+            self.tabla.setItem(self.contador, 0, QTableWidgetItem(u.nombreCompleto))
             self.tabla.setItem(self.contador, 1, QTableWidgetItem(u.usuario))
             self.tabla.setItem(self.contador, 2, QTableWidgetItem(u.password))
             self.tabla.setItem(self.contador, 3, QTableWidgetItem(u.documento))
@@ -178,7 +181,7 @@ class Ventana3(QMainWindow):
             self.contador += 1
 
         # Metemos la tabla en el scroll:
-        self.ScrollArea.setWidget(self.tabla)
+        self.scrollArea.setWidget(self.tabla)
 
         # Metemos el layout vertical en el scroll:
         self.vertical.addWidget(self.scrollArea)
